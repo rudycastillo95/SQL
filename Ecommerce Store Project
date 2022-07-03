@@ -1,0 +1,33 @@
+-----Create a ecommerce store involving local teams
+
+CREATE TABLE store ( id INTEGER PRIMARY KEY, item TEXT, team TEXT, price INTEGER, product_category text); 
+
+INSERT INTO store VALUES (1, "Men's Tennessee Titans Derrick Henry Nike Navy Game Jersey", "Tennessee Titans", 130,"Activewear");
+INSERT INTO store VALUES (2, "Men's Nike Ja Morant Navy Memphis Grizzlies Swingman Jersey - Icon Edition", "Memphis Grizzlies", 110,"Activewear");
+INSERT INTO store VALUES (3, "Men's Nashville Predators Roman Josi Fanatics Branded Gold Breakaway Player Jersey", "Nashville Predators", 170,"Activewear");
+INSERT INTO store VALUES (4, "Men's Nashville SC adidas Navy 2022 Americana Pre-Match AEROREADY Top", "Nashville SC", 60,"Activewear");
+INSERT INTO store VALUES (5, "Women's Tennessee Titans Derrick Henry Nike Light Blue Game Jersey", "Tennessee Titans", 130,"Activewear");
+INSERT INTO store VALUES (6, "Women's Mitchell & Ness Jason Williams Black Memphis Grizzlies Hardwood Classics Swingman Jersey", "Memphis Grizzlies", 110,"Activewear");
+INSERT INTO store VALUES (7, "Women's Nashville Predators Fanatics Branded Yellow Breakaway Home Jersey", "Nashville Predators", 120,"Activewear");
+INSERT INTO store VALUES (8, "Women's Nashville SC adidas Blue 2021 Primeblue Replica Jersey", "Nashville SC", 80,"Activewear");
+INSERT INTO store VALUES (9, "Men's Tennessee Titans Taylor Lewan Fanatics Branded Navy Playmaker T-Shirt", "Tennessee Titans", 32,"Activewear");
+INSERT INTO store VALUES (10, "Men's Fanatics Branded Ja Morant Navy Memphis Grizzlies 2019 NBA Draft Playmaker Name & Number T-Shirt", "Memphis Grizzlies", 32,"Activewear");
+INSERT INTO store VALUES (11, "Youth Nashville Predators Filip Forsberg Gold Player Name & Number T-Shirt", "Nashville Predators", 25,"Activewear");
+INSERT INTO store VALUES (12, "Youth Nashville SC Columbia Navy Flanker Full-Zip Jacket", "Nashville SC", 70,"Activewear");
+INSERT INTO store VALUES (13, "Men's Tennessee Titans New Era Black Quad II 9FIFTY Trucker Snapback Hat", "Tennessee Titans", 37,"Activewear");
+INSERT INTO store VALUES (14, "Men's New Era Gray Memphis Grizzlies Team Color Pop 59FIFTY Fitted Hat", "Memphis Grizzlies", 42,"Activewear");
+INSERT INTO store VALUES (15, "Men's Nashville Predators Fanatics Branded Navy Core Primary Logo Flex Hat", "Nashville Predators", 30,"Activewear");
+
+--display the database ordered by price. 
+SELECT * FROM store
+ORDER BY price desc; 
+
+--what is the avg price of items? 
+SELECT AVG(price) "avg item price"
+FROM store; 
+
+--what are the most 5 expensive items? 
+SELECT item, price
+FROM store
+order by price desc
+limit 5; 
