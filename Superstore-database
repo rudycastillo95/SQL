@@ -1,0 +1,54 @@
+--Query 1: 
+
+SELECT `Customer Name`, `Customer ID`, State 
+FROM Superstore s 
+WHERE Region <> 'Central'
+LIMIT 200;
+
+--Query 2:
+
+SELECT `Customer Name`, Segment,`Product Name` 
+FROM Superstore s 
+WHERE Region = 'South';
+
+--Query 3 
+
+SELECT Category, avg(sales), avg(Profit)
+FROM Superstore s 
+GROUP BY Category;
+
+--Query 4 
+
+SELECT State, COUNT(Category), Category  
+FROM Superstore s
+GROUP BY State, Category;
+
+--Query 5 
+
+SELECT Category, SUM(Sales)
+FROM Superstore s 
+GROUP BY Category;
+
+--Query 6
+
+SELECT City, SUM(sales)
+FROM Superstore s 
+GROUP BY City
+ORDER BY City;
+
+--Query 7 
+
+SELECT `Customer Name` , `Ship Date` , `Ship Mode` 
+FROM Superstore s
+ORDER BY `Customer Name`;
+
+--Query 8 
+
+SELECT `Customer Name` , `Customer ID`,  `Order ID`, `Order Date` 
+FROM Superstore s 
+WHERE Region IN ('West','East');
+
+
+
+
+
