@@ -1,0 +1,48 @@
+--Query 1 
+
+SELECT `Product Type` , COUNT(`Product Type`) 
+FROM business_retailsales_csv brc 
+GROUP BY `Product Type` ;
+
+--Query 2
+
+SELECT `Month` , AVG(`Gross Sales`) as avg_gross_sales, AVG(Discounts) AS avg_discounts, AVG(`Returns`) as avg_returns, AVG(`Net Sales`) as avg_net_sales, AVG(Shipping) as avg_shipping, AVG(`Total Sales`) as avg_total_sales  
+FROM business_retailsales2_csv brc 
+GROUP BY `Month` ;
+
+--Query 3
+
+SELECT `Total Orders`, `Year`, `Month`  
+FROM business_retailsales2_csv brc 
+WHERE `Year` in (2017,2018,2019) ; 
+
+--Query 4
+
+SELECT `Product Type` , MIN(`Gross Sales`) AS min_gross_sales, MAX(`Gross Sales`) as max_gross_sales
+FROM business_retailsales_csv brc 
+GROUP BY `Product Type` ;
+
+--Query 5
+
+SELECT `Total Net Sales` , `Product Type` 
+FROM business_retailsales_csv brc 
+WHERE `Total Net Sales` BETWEEN 1000 and 13000 ;
+
+--Query 6
+
+SELECT `Month` , AVG(`Total Orders`) as avg_total_orders
+FROM business_retailsales2_csv brc 
+WHERE Year <> 2018
+GROUP BY `Month` 
+
+--Query 7 
+
+SELECT `Product Type` , `Net Quantity` , `Gross Sales` , `Total Net Sales` 
+FROM business_retailsales_csv brc 
+WHERE `Product Type` LIKE '_asket'
+
+--Query 8 
+
+SELECT `Month`, `Gross Sales` , `Total Sales` 
+FROM  business_retailsales2_csv brc2 
+WHERE `Year` = 2017
