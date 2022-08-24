@@ -1,0 +1,37 @@
+Query 1
+
+SELECT Product_Name, SUM(Stock_On_Hand) as Stock_Total
+FROM products_csv pc 
+JOIN inventory_csv ic 
+ON pc.Product_ID = ic.Store_ID
+GROUP BY Product_Name;
+
+Query 2
+
+SELECT Product_Category, Store_Name, AVG(Stock_On_Hand) AS avg_stock
+FROM products_csv pc 
+JOIN inventory_csv ic 
+ON pc.Product_ID = ic.Product_ID 
+JOIN stores_csv sc  
+ON ic.Store_ID = sc.Store_ID 
+GROUP BY Store_Name, Product_Category;
+
+Query 3 
+
+SELECT Store_City, Store_Location, Store_Open_Date 
+FROM stores_csv sc;
+
+Query 4
+
+SELECT Product_Name, Store_Name, Store_City, Stock_On_Hand
+FROM products_csv pc 
+JOIN inventory_csv ic  
+ON pc.Product_ID  = ic.Product_ID 
+JOIN stores_csv sc 
+ON ic.Store_ID = sc.Store_ID; 
+
+Query 5 
+
+SELECT Store_Name, Store_City
+FROM stores_csv sc 
+WHERE Store_Location = 'Residential'
