@@ -1,0 +1,52 @@
+-- Query 1 
+
+SELECT
+count(CASE WHEN gender = 'M' then 1 end) as count_male,
+count(CASE WHEN gender = 'F' then 1 end) as count_female
+FROM profile;
+
+-- Query 2
+
+SELECT
+count(case when age >= 20 then 'young' end) as count_young,
+count(case when age between 21 and 45 then 'adult' end) as count_adult,
+count(case when age between 46 and 115 then 'old' end) as count_old
+FROM profile;
+
+-- Query 3
+
+SELECT 
+gender,
+age,
+MAX(income) as max_income,
+AVG(income) as avg_income
+FROM profile
+WHERE gender <> 'O'
+GROUP BY gender, age;
+
+-- Query 4
+
+SELECT 
+min(became_member_on) as min_became_member_on,
+max(became_member_on) as max_became_member_on
+FROM profile;
+
+-- Query 5
+
+SELECT
+id,
+SUM(customer_id) as count_customer,
+day(became_member_on) as day_became_member
+FROM profile
+group by id;
+
+-- Query 6
+
+SELECT
+id,
+COUNT(case when offer_type = 'bogo' then 1 end) as offer_type_bogo,
+COUNT(case when offer_type = 'informational' then 1 end) as offer_type_informational,
+COUNT(case when offer_type = 'discount' then 1 end) as offer_type_discount,
+COUNT(reward) as count_reward
+FROM portfolio
+GROUP BY id;
