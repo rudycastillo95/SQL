@@ -2,8 +2,59 @@ Mexican Restaurant Query
 
 1. What is the most popular item?
 
+SELECT 
+  MenuItems.item_name
+FROM MenuItems
+JOIN OrderItem
+ON MenuItems.item_id = OrderItem.item_id
+
 2. What is most ordered by category? 
+
+SELECT 
+  Categories.category_name
+FROM Categories
+JOIN MenuItems
+ON Categories.category_id = MenuItems.category_id
+JOIN OrderItem
+ON OrderItem.item_id = MenuItem.item_id
 
 3. Show each category geneates revenue?
 
-4. Modify order amount after mistaken by the waiter for Daniel Martinez
+SELECT 
+  Categories.category_name,
+  Orders.total_amount
+FROM Categories
+JOIN MenuItems
+ON Categories.category_id = MenuItems.category_id
+JOIN OrderItem
+ON MenuItems.item_id = OrderItem.item_id
+JOIN Orders
+ON OrderItem.order_id = Orders.order_id
+
+4. Modify order amount lessafter mistaken by the waiter for Daniel Martinez
+
+UPDATE Orders.total_amount
+SET Orders.total_amount * 0.02
+JOIN Customers
+ON Orders.customer_id = Customers.customer_id
+WHERE customer_name = "Daniel Martinez"
+
+
+5. Remove the word "Cilantro"
+
+Delete From MenuItems
+Where item_description = "Cilantro"
+
+6. Display by month to show each amount the restaurant has geneated
+
+SELECT
+  Orders.order_date,
+  Orders.total_amount,
+FROM Categories
+JOIN MenuItems
+ON Categories.category_id = MenuItems.category_id
+JOIN OrderItem
+ON MenuItems.item_id = OrderItem.item_id
+JOIN Orders
+ON OrderItem.order_id = Orders.order_id
+
